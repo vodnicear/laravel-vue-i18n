@@ -1,3 +1,4 @@
+import langPHP from './lang'
 import { reactive, Plugin } from 'vue'
 import { OptionsInterface } from './interfaces/options'
 import { LanguageInterface } from './interfaces/language'
