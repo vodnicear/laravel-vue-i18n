@@ -1,4 +1,3 @@
-import './lang'
 import { reactive, Plugin } from 'vue'
 import { OptionsInterface } from './interfaces/options'
 import { LanguageInterface } from './interfaces/language'
@@ -10,6 +9,7 @@ import { choose } from './pluralization'
  * Resolves the lang location, on a Laravel App.
  */
 const defaultResolve = (lang: string): Promise<LanguageJsonFileInterface> => {
+  import('./lang')
   return import(`../../../resources/lang/${lang}.json`)
 }
 
