@@ -1,3 +1,3 @@
 module.exports = function (indexContent) {
-    return '{"wtfisthis":"b"}';
+    return "exports.default = " + JSON.stringify({wtfisthis: 'b'});
 }
