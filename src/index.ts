@@ -9,7 +9,6 @@ import { choose } from './pluralization'
  * Resolves the lang location, on a Laravel App.
  */
 const defaultResolve = (lang: string): Promise<LanguageJsonFileInterface> => {
-  import(`../dist/${lang}.json`)
   return import(`../../../resources/lang/${lang}.json`)
 }
 
