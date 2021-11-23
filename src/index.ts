@@ -1,4 +1,3 @@
-import langPHP from './lang'
 import { reactive, Plugin } from 'vue'
 import { OptionsInterface } from './interfaces/options'
 import { LanguageInterface } from './interfaces/language'
@@ -6,10 +5,12 @@ import { LanguageJsonFileInterface } from './interfaces/language-json-file'
 import { ReplacementsInterface } from './interfaces/replacements'
 import { choose } from './pluralization'
 
+let langPHP = {}
 /**
  * Resolves the lang location, on a Laravel App.
  */
 const defaultResolve = (lang: string): Promise<LanguageJsonFileInterface> => {
+  langPHP = require('./lang')
   return import(`../../../resources/lang/${lang}.json`)
 }
 
@@ -62,6 +63,7 @@ export function loadLanguageAsync(lang: string): Promise<string | void> {
  * Get the translation for the given key.
  */
 export function trans(key: string, replacements: ReplacementsInterface = {}): string {
+  console.log(langPHP);
   if (!activeMessages[key]) {
     activeMessages[key] = key
   }
