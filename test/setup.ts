@@ -37,6 +37,6 @@ global.mixLoader = () => {
 
   process.env = Object.assign(process.env, {
     LARAVEL_VUE_I18N_HAS_PHP: 'true',
-    LARAVEL_VUE_I18N_LANG_PATH: __dirname + '/fixtures/lang/',
+    LARAVEL_VUE_I18N_PATH: __dirname + '/fixtures/lang/',
   });
 }
