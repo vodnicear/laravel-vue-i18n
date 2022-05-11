@@ -163,7 +163,7 @@ it('resolves translated data with loader if there is only .php files for that la
   expect(wrapper.html()).toBe('<h1>Ces identifiants ne correspondent pas à nos enregistrements.</h1>')
 })
 
-it.only('resolves .php translations without passing the resolve option', async () => {
+it('resolves .php translations without passing the resolve option', async () => {
   global.mixLoader();
 
   const wrapper = mount({ template: `<h1 v-text="$t('auth.failed')" />` }, {
