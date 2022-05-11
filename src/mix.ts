@@ -36,10 +36,16 @@ mix.extend(
         ignored: /php_\w+\.json/
       }
 
+      config.plugins.push(
+        new EnvironmentPlugin({
+          LARAVEL_VUE_I18N_PATH: this.langPath,
+        })
+      )
+
       if (hasPhpTranslations(this.langPath)) {
         config.plugins.push(
           new EnvironmentPlugin({
-            LARAVEL_VUE_I18N_HAS_PHP: true
+            LARAVEL_VUE_I18N_HAS_PHP: true,
           })
         )
       }

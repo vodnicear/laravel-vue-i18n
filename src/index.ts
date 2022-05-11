@@ -13,7 +13,20 @@ const isServer = typeof window === 'undefined'
  */
 const DEFAULT_OPTIONS: OptionsInterface = {
   lang: !isServer && document.documentElement.lang ? document.documentElement.lang.replace('-', '_') : 'en',
-  resolve: (lang: string) => new Promise((resolve) => resolve({ default: {} }))
+  resolve: (lang: string) => new Promise(async (resolve) => {
+    const langPath =
+      typeof process !== 'undefined' && process.env ? process.env.LARAVEL_VUE_I18N_LANG_PATH : false
+
+    if (! langPath) {
+      return resolve({ default: {} });
+    }
+
+    try {
+      return resolve(await import(`${langPath}/${lang}.json`));
+    } catch (e) {
+      return resolve({ default: {} });
+    }
+  })
 }
 
 /**
