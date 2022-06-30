@@ -43,9 +43,11 @@ export const parseAll = (folderPath: string): { name: string; path: string }[] =
       .filter((file) => !fs.statSync(folderPath + path.sep + folder + path.sep + file).isDirectory())
       .sort()
       .forEach((file) => {
-        lang[file.replace(/\.\w+$/, '')] = parse(
-          fs.readFileSync(folderPath + path.sep + folder + path.sep + file).toString()
-        )
+        if (['app.php', 'chat.php'].includes(file)) {
+          lang[file.replace(/\.\w+$/, '')] = parse(
+            fs.readFileSync(folderPath + path.sep + folder + path.sep + file).toString()
+          )
+        }
       })
 
     data.push({
