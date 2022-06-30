@@ -50,13 +50,13 @@ mix.extend(
         })
       )
 
-      this.context.listen('build', () => {
-        files.forEach((file) => {
-          if (fs.existsSync(file.path)) {
-            fs.unlinkSync(file.path)
-          }
-        })
-      })
+//       this.context.listen('build', () => {
+//         files.forEach((file) => {
+//           if (fs.existsSync(file.path)) {
+//             fs.unlinkSync(file.path)
+//           }
+//         })
+//       })
     }
   }
 )
