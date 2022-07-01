@@ -58,7 +58,7 @@ export const parseAll = (folderPath: string): { name: string; path: string }[] =
 
   return data.map(({ folder, translations }) => {
     const name = `${folder}.json`
-    const path = folderPath.replace('/lang/', '/resources/js/i18n/') + name
+    const path = folderPath.replace('/lang/', '/public/js/i18n/') + name
 
     fs.writeFileSync(path, JSON.stringify(translations))
     return { name, path }
